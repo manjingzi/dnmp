@@ -349,7 +349,7 @@ fi
 
 if [[ -z "${EXTENSIONS##*,yac,*}" ]]; then
     echo "---------- Install yac ----------"
-    printf "\n" | pecl install yac-2.0.3
+    printf "\n" | pecl install yac-2.0.2
     docker-php-ext-enable yac
 fi
 
@@ -454,7 +454,7 @@ if [[ -z "${EXTENSIONS##*,redis,*}" ]]; then
     echo "---------- Install redis ----------"
     isPhpVersionGreaterOrEqual 7 0
     if [[ "$?" = "1" ]]; then
-        installExtensionFromTgz redis-5.1.1
+        installExtensionFromTgz redis-5.0.2
     else
         printf "\n" | pecl install redis-4.3.0
         docker-php-ext-enable redis
@@ -463,7 +463,7 @@ fi
 
 if [[ -z "${EXTENSIONS##*,apcu,*}" ]]; then
     echo "---------- Install apcu ----------"
-    installExtensionFromTgz apcu-5.1.18
+    installExtensionFromTgz apcu-5.1.17
 fi
 
 if [[ -z "${EXTENSIONS##*,memcached,*}" ]]; then
@@ -472,7 +472,7 @@ if [[ -z "${EXTENSIONS##*,memcached,*}" ]]; then
     isPhpVersionGreaterOrEqual 7 0
 
     if [[ "$?" = "1" ]]; then
-        printf "\n" | pecl install memcached-3.1.5
+        printf "\n" | pecl install memcached-3.1.3
     else
         printf "\n" | pecl install memcached-2.2.0
     fi
@@ -486,7 +486,7 @@ if [[ -z "${EXTENSIONS##*,memcache,*}" ]]; then
     if [[ "$?" = "1" ]]; then
         installExtensionFromTgz memcache-4.0.5.2
     else
-        installExtensionFromTgz memcache-2.2.7
+        installExtensionFromTgz memcache-2.2.6
     fi
 fi
 
@@ -495,7 +495,7 @@ if [[ -z "${EXTENSIONS##*,xdebug,*}" ]]; then
     isPhpVersionGreaterOrEqual 7 0
 
     if [[ "$?" = "1" ]]; then
-        installExtensionFromTgz xdebug-2.9.1
+        installExtensionFromTgz xdebug-2.6.1
     else
         installExtensionFromTgz xdebug-2.5.5
     fi
@@ -517,7 +517,7 @@ fi
 
 if [[ -z "${EXTENSIONS##*,mongodb,*}" ]]; then
     echo "---------- Install mongodb ----------"
-    installExtensionFromTgz mongodb-1.6.1
+    installExtensionFromTgz mongodb-1.5.5
 fi
 
 if [[ -z "${EXTENSIONS##*,yaf,*}" ]]; then
@@ -538,9 +538,9 @@ if [[ -z "${EXTENSIONS##*,swoole,*}" ]]; then
     isPhpVersionGreaterOrEqual 7 0
 
     if [[ "$?" = "1" ]]; then
-        installExtensionFromTgz swoole-4.4.15
+        installExtensionFromTgz swoole-4.4.2
     else
-        installExtensionFromTgz swoole-2.2.0
+        installExtensionFromTgz swoole-2.0.11
     fi
 fi
 
@@ -560,7 +560,7 @@ if [[ -z "${EXTENSIONS##*,xhprof,*}" ]]; then
 
     if [[ "$?" = "1" ]]; then
         mkdir xhprof \
-        && tar -xf xhprof-2.1.4.tgz -C xhprof --strip-components=1 \
+        && tar -xf xhprof-2.1.0.tgz -C xhprof --strip-components=1 \
         && ( cd xhprof/extension/ && phpize && ./configure  && make ${MC} && make install ) \
         && docker-php-ext-enable xhprof
     else
