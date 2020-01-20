@@ -96,6 +96,7 @@ DNMP项目特点：
                                                         # PHP5.6、PHP5.4、MongoDB，ElasticSearch等，请删
                                                         # 除服务块前的注释
     $ docker-compose up                                 # 启动
+	$ docker-compose up -d --build						# 以守护进程模式运行
     ```
 5. 在浏览器中访问：`http://localhost`或`https://localhost`(自签名HTTPS演示)就能看到效果，PHP代码在文件`./www/localhost/index.php`。
 
