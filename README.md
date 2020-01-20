@@ -350,7 +350,12 @@ $ redis-cli -h127.0.0.1
 ```
 这里`host`参数不能用localhost是因为它默认是通过sock文件与mysql通信，而容器与主机文件系统已经隔离，所以需要通过TCP方式连接，所以需要指定IP。
 
+## mkcert
+https://github.com/FiloSottile/mkcert 
 
+```bash
+./services/nginx/ssl/mkcert-v1.4.1-windows-amd64.exe -key-file key.pem -cert-file cert.pem localhost 127.0.0.1 *.jjcms.com
+```
 
 ## License
 MIT
