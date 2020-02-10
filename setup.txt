@@ -37,7 +37,7 @@ php init
 host:mysql
 port:3306 
 username:root
-password:root
+password:123456
 
 ## redis 配置
 host:redis
