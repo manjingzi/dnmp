@@ -1,0 +1,2 @@
+
+.\mkcert-v1.4.1-windows-amd64.exe -key-file key.pem -cert-file cert.pem jjcms.com *.jjcms.com localhost 127.0.0.1 ::1
