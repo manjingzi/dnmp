@@ -344,18 +344,6 @@ if [[ -z "${EXTENSIONS##*,msgpack,*}" ]]; then
     docker-php-ext-enable msgpack
 fi
 
-if [[ -z "${EXTENSIONS##*,yaconf,*}" ]]; then
-    record_log info "---------- Install yaconf ----------"
-    printf "\n" | pecl install yaconf
-    docker-php-ext-enable yaconf
-fi
-
-if [[ -z "${EXTENSIONS##*,seaslog,*}" ]]; then
-    record_log info "---------- Install seaslog ----------"
-    printf "\n" | pecl install seaslog
-    docker-php-ext-enable seaslog
-fi
-
 if [[ -z "${EXTENSIONS##*,amqp,*}" ]]; then
     record_log info "---------- Install amqp ----------"
     apk add --no-cache rabbitmq-c-dev
@@ -370,19 +358,6 @@ fi
 if [[ -z "${EXTENSIONS##*,apcu,*}" ]]; then
     record_log info "---------- Install apcu ----------"
     installExtensionFromTgz apcu-5.1.18
-fi
-
-if [[ -z "${EXTENSIONS##*,memcached,*}" ]]; then
-    record_log info "---------- Install memcached ----------"
-    apk add --no-cache libmemcached-dev zlib-dev
-    printf "\n" | pecl install memcached-3.1.5
-
-    docker-php-ext-enable memcached
-fi
-
-if [[ -z "${EXTENSIONS##*,memcache,*}" ]]; then
-    record_log info "---------- Install memcache ----------"
-    installExtensionFromTgz memcache-4.0.5.2
 fi
 
 if [[ -z "${EXTENSIONS##*,xdebug,*}" ]]; then
@@ -408,13 +383,6 @@ if [[ -z "${EXTENSIONS##*,mongodb,*}" ]]; then
     record_log info "---------- Install mongodb ----------"
     installExtensionFromTgz mongodb-1.6.1
 fi
-
-if [[ -z "${EXTENSIONS##*,yaf,*}" ]]; then
-    record_log info "---------- Install yaf ----------"
-	printf "\n" | pecl install yaf
-	docker-php-ext-enable yaf
-fi
-
 
 if [[ -z "${EXTENSIONS##*,swoole,*}" ]]; then
     record_log info "---------- Install swoole ----------"
