@@ -51,6 +51,7 @@ port:6379
 127.0.0.1 old.jjcms.com
 127.0.0.1 www.jjcms.com
 127.0.0.1 api.jjcms.com
+127.0.0.1 deep.jjcms.com
 
 ## 测试yii2 mysql redis 状态
 http://localhost
